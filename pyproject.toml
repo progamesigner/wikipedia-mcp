@@ -1,9 +1,25 @@
 [project]
 name = "wikipedia-mcp"
 version = "1.0.0"
-description = "MCP server for Wikipedia"
+description = "A Model Context Protocol server providing tools for querying Wikipedia for LLMs."
 readme = "README.md"
 requires-python = ">=3.13"
+authors = [
+    { name = "Yang Sheng Han", email = "progamesigner@gmail.com" },
+]
+keywords = ["wikipedia", "mcp", "llm"]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: AsyncIO",
+    "Framework :: FastMCP",
+    "Framework :: Pydantic",
+    "Framework :: Pydantic :: 2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3",
+]
 dependencies = [
     "fastmcp>=2.9.0",
     "httpx>=0.28.1",
