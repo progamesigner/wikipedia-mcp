@@ -11,6 +11,9 @@ dependencies = [
     "pydantic-settings>=2.10.0",
 ]
 
+[project.scripts]
+wikipedia-mcp = "wikipedia_mcp:main"
+
 [dependency-groups]
 dev = [
     "pytest>=8.4.1",
@@ -19,3 +22,6 @@ dev = [
 
 [tool.ruff.format]
 quote-style = "single"
+
+[tool.uv]
+package = true
