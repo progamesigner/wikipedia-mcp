@@ -4,4 +4,17 @@ version = "1.0.0"
 description = "MCP server for Wikipedia"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastmcp>=2.9.0",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.7",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.12.0",
+]
+
+[tool.ruff.format]
+quote-style = "single"
