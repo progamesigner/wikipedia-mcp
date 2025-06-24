@@ -49,8 +49,9 @@ jobs:
           org.opencontainers.image.vendor=https://github.com/${{ github.repository }}
           org.opencontainers.image.version=${{ github.sha }}
         tags: |
+          type=sha
           type=raw,value=latest
-          type=schedule,pattern={{date 'YYYYMMDD'}}
+          type=semver,pattern={{version}}
     - id: build
       uses: docker/build-push-action@v6
       with:

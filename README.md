@@ -26,7 +26,7 @@ use [`uvx`](https://docs.astral.sh/uv/guides/tools/) to directly run *wikipedia-
 Alternatively you can install `wikipedia-mcp` via pip:
 
 ```bash
-pip install wikipedia-mcp
+pip install wikipedia-mcp-server
 ```
 
 After installation, you can run it as a script using:
@@ -44,7 +44,7 @@ python -m wikipedia_mcp
     "wikipedia-mcp": {
       "command": "uvx",
       "args": [
-        "wikipedia-mcp@latest"
+        "wikipedia-mcp-server@latest"
       ]
     }
   }
@@ -61,7 +61,7 @@ python -m wikipedia_mcp
         "run",
         "-i",
         "--rm",
-        "ghcr.io/progamesigner/wikipedia-mcp@latest"
+        "ghcr.io/progamesigner/wikipedia-mcp:latest"
       ]
     }
   }

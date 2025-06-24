@@ -525,7 +525,7 @@ wheels = [
 ]
 
 [[package]]
-name = "wikipedia-mcp"
+name = "wikipedia-mcp-server"
 version = "1.0.0"
 source = { editable = "." }
 dependencies = [

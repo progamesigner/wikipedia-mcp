@@ -1,5 +1,5 @@
 [project]
-name = "wikipedia-mcp"
+name = "wikipedia-mcp-server"
 version = "1.0.0"
 description = "A Model Context Protocol server providing tools for querying Wikipedia for LLMs."
 readme = "README.md"
@@ -12,7 +12,6 @@ license = { text = "MIT" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: AsyncIO",
-    "Framework :: FastMCP",
     "Framework :: Pydantic",
     "Framework :: Pydantic :: 2",
     "Intended Audience :: Developers",
