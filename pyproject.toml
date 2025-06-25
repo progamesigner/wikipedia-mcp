@@ -1,6 +1,6 @@
 [project]
 name = "wikipedia-mcp-server"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Model Context Protocol server providing tools for querying Wikipedia for LLMs."
 readme = "README.md"
 requires-python = ">=3.13"
