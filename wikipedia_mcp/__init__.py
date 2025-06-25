@@ -1,11 +1,8 @@
-from asyncio import run
 from typing import Annotated
 
 from fastmcp.server.server import Transport
 from pydantic import Field
 from pydantic_settings import BaseSettings
-
-from wikipedia_mcp.server import mcp
 
 
 class Settings(BaseSettings):
@@ -15,19 +12,23 @@ class Settings(BaseSettings):
     transport: Annotated[Transport, Field()] = 'stdio'
 
 
-settings = Settings()
+def main() -> int:
+    from asyncio import run
 
+    from wikipedia_mcp.server import mcp
 
-def arguments(transport: Transport) -> dict[str, int | str | None]:
-    if transport in {'stdio'}:
-        return {}
+    settings = Settings()
+
+    if settings.transport in {'stdio'}:
+        run(mcp.run_async(settings.transport))
     else:
-        return {
-            'host': settings.host,
-            'port': settings.port,
-            'path': settings.path,
-        }
+        run(
+            mcp.run_async(
+                settings.transport,
+                host=settings.host,
+                port=settings.port,
+                path=settings.path,
+            )
+        )
 
-
-def main() -> None:
-    run(mcp.run_async(settings.transport, **arguments(settings.transport)))
+    return 0

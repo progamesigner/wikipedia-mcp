@@ -1,3 +1,6 @@
-from . import main
+from sys import exit
 
-main()
+from wikipedia_mcp import main
+
+if __name__ == '__main__':
+    exit(main())
