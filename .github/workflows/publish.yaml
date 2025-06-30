@@ -39,7 +39,7 @@ jobs:
     - name: Install dependencies & Fetch metadata
       run: |
         uv sync --frozen
-        echo IMAGE_VERESION=v$(uv version --short) >> $GITHUB_ENV
+        echo IMAGE_VERSION=v$(uv version --short) >> $GITHUB_ENV
     - uses: docker/setup-qemu-action@v3
     - uses: docker/setup-buildx-action@v3
     - uses: docker/login-action@v3
