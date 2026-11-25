@@ -8,6 +8,7 @@ from pydantic import Field
 from wikipedia_mcp.types import SearchItem, SearchResponse
 
 BASE_URL_TEMPLATE = r'https://{language}.wikipedia.org/w/api.php'
+USER_AGENT = 'wikipedia-mcp/1.0.1 (https://github.com/progamesigner/wikipedia-mcp)'
 
 mcp = FastMCP[None](
     'Wikipedia MCP',
@@ -35,7 +36,7 @@ async def search(
 
     :raises httpx.HTTPStatusError: If the request fails or returns an error status.
     """
-    async with AsyncClient(follow_redirects=True) as client:
+    async with AsyncClient(follow_redirects=True, headers={'User-Agent': USER_AGENT}) as client:
         response = await client.get(
             BASE_URL_TEMPLATE.format(language=language),
             params={
@@ -78,7 +79,7 @@ async def fetch(
     :raises KeyError: If the 'parse' or 'text' keys are not present in the response.
     :raises httpx.HTTPStatusError: If the request fails or returns an error status.
     """
-    async with AsyncClient(follow_redirects=True) as client:
+    async with AsyncClient(follow_redirects=True, headers={'User-Agent': USER_AGENT}) as client:
         response = await client.get(
             BASE_URL_TEMPLATE.format(language=language),
             params={

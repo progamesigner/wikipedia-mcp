@@ -1,20 +1,20 @@
 from asyncio import run
 
 from fastmcp import Client
-from fastmcp.utilities.types import MCPContent
-from mcp.types import TextContent
+from mcp.types import ContentBlock, TextContent
 
 from wikipedia_mcp.server import mcp
 
 client = Client(mcp)
 
 
-async def call(id: int, language: str) -> list[MCPContent]:
+async def call(id: int, language: str) -> list[ContentBlock]:
     async with client:
-        return await client.call_tool(
+        result = await client.call_tool(
             'fetch',
             {'id': id, 'language': language},
         )
+        return result.content
 
 
 def test_fetch() -> None:
